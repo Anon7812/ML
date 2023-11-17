@@ -1,0 +1,71 @@
+1. Initialize h to the most specific hypothesis in H
+2. For each positive training instance x
+    For each attribute constraint a, in h
+        If the constraint a, is satisfied by x
+        Then do nothing
+        Else replace a, in h by the next more general constraint that is satisfied by x
+3. Output hypothesis h 
+----------------------------------------
+find xmean,ymean,x-xmean,y-ymean,x-xmean * y-ymean,x-xmean^2
+sxy = x-xmean * y-ymean/n-1, sx^2 = x-xmean^2/n-1, b1=sxy/sx^2, b0=ymean-b1xmean
+matrix: x = [1 x1] y = [y1] a=((xtx)^-1xt)y
+            [1 x2]     [y2]
+            [1 .]      [.]
+----------------------------------------
+Initialize k means with random values
+
+--> For a given number of iterations:
+    
+    --> Iterate through items:
+    
+        --> Find the mean closest to the item by calculating 
+        the euclidean distance of the item with each of the means
+        
+        --> Assign item to mean
+        
+        --> Update mean by shifting it to the average of the items in that cluster
+------------------------------------------
+KNN Algorithm:
+Input:
+
+Training dataset with labeled examples.
+A new, unlabeled data point to classify or predict.
+Choose the Number of Neighbors (k):
+
+Decide on the number of neighbors (k) to consider. This is typically an odd number to avoid ties in classification.
+Calculate Distance:
+
+Measure the distance between the new data point and all points in the training set. Common distance metrics include Euclidean distance, Manhattan distance, or others depending on the problem.
+Find k Nearest Neighbors:
+
+Identify the k training examples with the smallest distances to the new data point.
+Majority Vote (Classification) or Average (Regression):
+
+For classification, assign the class label that is most common among the k neighbors.
+For regression, predict the average of the target values of the k neighbors.
+Output:
+
+The predicted class label (for classification) or predicted value (for regression).
+---------------------------------------
+The ID3 Algorithm
+
+. If all examples have the same label:
+
+return a leaf with that label
+
+Else if there are no features left to test:
+
+return a leaf with the most common label
+
+. Else:
+
+choose the feature that maximises the information gain of S to be the next node using Equation (12.2)
+
+- add a branch from the node for each possible value f in F
+
+for each branch:
+
+calculate S, by removing from the set of features
+
+* recursively call the algorithm with Sr. to compute the gain relative to the current set of examples
+------------------------------------------
