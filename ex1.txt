@@ -135,3 +135,66 @@ predictions = mlp.predict(X_test)
 
 accuracy = accuracy_score(y_test, predictions)
 print(f"Accuracy: {accuracy}")
+------------------------
+import numpy as np
+
+# Define the sigmoid activation function and its derivative
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+# Initialize weights and biases
+w1, w2, w3, w4, w5, w6 = 0.7, -0.2, -0.4, 0.3, 0.5, 0.1
+b1, b2, b3 =-0.4, 0.2, 0.1
+learning_rate = 0.9
+input_data = np.array([-1, 1])
+target_output = 1
+
+# Number of iterations
+max_iterations = 10000
+min_error = 1e-5
+
+# Perform backpropagation
+for iteration in range(max_iterations):
+    # Forward Pass
+    z1 = (input_data[0] * w1) + (input_data[1] * w2) + b1
+    a1 = sigmoid(z1)
+    z2 = (input_data[0] * w3) + (input_data[1] * w4) + b2
+    a2 = sigmoid(z2)
+    z_out = (a1 * w5) + (a2 * w6) + b3
+    a_out = sigmoid(z_out)
+
+    # Error calculation
+    error = 0.5 * (target_output - a_out) ** 2
+
+    # Backward Pass
+    delta_out = -(target_output - a_out) * a_out * (1 - a_out)
+    delta_a1 = delta_out * w5 * a1 * (1 - a1)
+    delta_a2 = delta_out * w6 * a2 * (1 - a2)
+
+    # Update weights and biases
+    w5 -= learning_rate * a1 * delta_out
+    w6 -= learning_rate * a2 * delta_out
+    w1 -= learning_rate * input_data[0] * delta_a1
+    w2 -= learning_rate * input_data[1] * delta_a1
+    w3 -= learning_rate * input_data[0] * delta_a2
+    w4 -= learning_rate * input_data[1] * delta_a2
+    b1 -= learning_rate * delta_a1
+    b2 -= learning_rate * delta_a2
+    b3 -= learning_rate * delta_out
+
+    # Check for convergence
+    if error < min_error:
+        print(f"Converged after {iteration + 1} iterations. Final error: {error}")
+        break
+
+# Print the final weights and biases
+print(f"Final w1: {w1}")
+print(f"Final w2: {w2}")
+print(f"Final w3: {w3}")
+print(f"Final w4: {w4}")
+print(f"Final w5: {w5}")
+print(f"Final w6: {w6}")
+print(f"Final b1: {b1}")
+print(f"Final b2: {b2}")
+print(f"Final b3: {b3}")
+----------------------------------
