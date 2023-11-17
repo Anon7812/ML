@@ -69,3 +69,24 @@ calculate S, by removing from the set of features
 
 * recursively call the algorithm with Sr. to compute the gain relative to the current set of examples
 ------------------------------------------
+1. Linear regression is a statistical method used for modeling the relationship between a dependent variable (also called the target or response variable) and one or more independent variables (predictors or features). It assumes that there is a linear relationship between the variables. The basic idea behind linear regression is to find the best-fit line that minimizes the sum of the squared differences between the observed and predicted values.
+
+2. K-Nearest Neighbors (KNN) is a simple and versatile supervised machine learning algorithm used for classification and regression tasks. KNN relies on a distance metric. For classification tasks, the majority class among the K-nearest neighbors is assigned to the data point being classified.
+
+3. K-Means is a popular unsupervised machine learning algorithm used for clustering, which is the process of grouping similar data points together. The algorithm aims to partition the data into K clusters, where each cluster is defined by its centroid
+[10:39, 11/17/2023] Nikhil Prasanna Cse Ceg: A Multilayer Perceptron (MLP) is a type of artificial neural network with multiple layers, including an input layer, one or more hidden layers, and an output layer. 
+
+Components: Input layer, hidden layer, output layer, weights, biases, activation function
+
+
+Forward Propagation:
+Input values are passed through the network to compute the predicted output.
+Loss Calculation:
+The difference between the predicted output and the actual target (ground truth) is calculated using a loss function.
+Backpropagation:
+The error is propagated backward through the network to update the weights and biases. This is done using optimization algorithms like gradient descent.
+Optimization:
+Adjust the weights and biases to minimize the loss. This process is typically performed iteratively over the training data.
+Epochs:
+Training continues for multiple epochs until the model converges to a satisfactory level of performance.
+-----------------
